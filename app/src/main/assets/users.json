@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Andrew",
+      "last_name": "Elmasry",
+      "email": "andrewelmasry@gmail.com",
+      "password" : "test11111"
+    },
+    {
+      "id": 2,
+      "first_name": "Maryam",
+      "last_name": "Elmasry",
+      "email": "maryamharkas@gmail.com",
+      "password" : "test22222"
+    },
+    {
+      "id": 3,
+      "first_name": "Lucy",
+      "last_name": "Elmasry",
+      "email": "lucypelmasry@gmail.com",
+      "password" : "test33333"
+    }
+  ]
+}

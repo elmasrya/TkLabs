@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TkLabs</string>
+    <string name="login_message">You are now logged in as: </string>
+    <string name="welcome_please_login">Welcome, Please Login</string>
+    <string name="type_email_here">Type email here</string>
+    <string name="type_password_here">Type password here</string>
+    <string name="email">Email: </string>
+    <string name="password">Password: </string>
+    <string name="login">Login</string>
 </resources>
