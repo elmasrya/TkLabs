@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
+            android:text="@string/test_email"
             android:hint="@string/type_email_here"
             android:layout_marginBottom="10dip"/>
 
@@ -43,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:text="@string/test_password"
             android:hint="@string/type_password_here"/>
     <Button
             android:id="@+id/b_login"
