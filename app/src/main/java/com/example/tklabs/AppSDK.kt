@@ -11,7 +11,7 @@ class AppSDK(activity: Activity) {
     var activity: Activity = activity
     lateinit var jsonArrayUsers: JSONArray
 
-    fun tryLogin(email: String, password: String): String {
+    suspend fun suspendTryLogin(email: String, password: String) : String{
         Log.d("hey", password)
 
         var loginResponse: String = ""

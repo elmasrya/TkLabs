@@ -9,10 +9,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tklabs.MyApplication.Companion.prefs
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 const val LOGIN_ID_EXTRA = "com.example.tklabs.LoginID"
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(){
 
     var prefs: Prefs? = null
     lateinit var activity: Activity
@@ -34,16 +39,16 @@ class LoginActivity : AppCompatActivity() {
         checkLogin()
 
         bLogin.setOnClickListener{
-            AsyncTask.execute {
-                var loginMessage = appSDK.tryLogin(etEmail.text.toString(), etPassword.text.toString())
+
+            GlobalScope.launch (Dispatchers.IO) {
+                var loginMessage = appSDK.suspendTryLogin(etEmail.text.toString(), etPassword.text.toString())
 
                 if (loginMessage.equals("Login Successful")) {
                     //TODO: Webservice call
 
+
                 } else {
-                    activity.runOnUiThread{
-                        Toast.makeText(activity, loginMessage, Toast.LENGTH_LONG).show()
-                    }
+                    //Toast.makeText(activity, loginMessage, Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -61,13 +66,4 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(activity, "Please Login", Toast.LENGTH_LONG).show()
         }
     }
-
-    suspend fun loadUser() {
-
-    }
-
-    fun fetchUser() {
-
-    }
-
 }
