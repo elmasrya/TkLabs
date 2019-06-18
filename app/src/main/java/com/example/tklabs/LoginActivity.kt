@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         activity = this;
-        appSDK = AppSDK()
+        appSDK = AppSDK(activity)
         prefs = Prefs(activity)
         bLogin = findViewById(R.id.b_login)
 
