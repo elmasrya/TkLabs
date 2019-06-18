@@ -10,12 +10,8 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_home)
         loginID = intent.getIntExtra(LOGIN_ID_EXTRA, 0)
         tvLoginID = findViewById(R.id.tv_login_id)
-
-
-
-
     }
 }

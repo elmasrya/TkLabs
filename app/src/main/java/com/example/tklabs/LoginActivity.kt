@@ -7,12 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-const val LOGIN_ID_EXTRA = "com.example.tklabs.LoginID"
+val PREFS_FILENAME = "com.example.tklabs.prefs"
+const val LOGIN_ID_EXTRA = "login_id"
 
 class LoginActivity : AppCompatActivity(){
 

@@ -1,11 +1,12 @@
 package com.example.tklabs
 
 import android.app.Activity
+import org.json.JSONObject
 
 class WebService {
 
-    fun login(userData: String, activity: Activity): String {
-
-        return ""
+    fun login(userData: String): String {
+        val jsonObject = JSONObject(userData)
+        return jsonObject.getString("id")
     }
 }
