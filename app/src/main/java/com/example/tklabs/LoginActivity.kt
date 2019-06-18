@@ -15,18 +15,20 @@ class LoginActivity : AppCompatActivity() {
     var prefs: Prefs? = null
     lateinit var activity: Activity
     lateinit var bLogin: Button
+    lateinit var appSDK: AppSDK;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         activity = this;
+        appSDK = AppSDK()
         prefs = Prefs(activity)
         bLogin = findViewById(R.id.b_login)
 
         checkLogin()
 
         bLogin.setOnClickListener{
-            
+            appSDK.tryLogin()
         }
     }
 
