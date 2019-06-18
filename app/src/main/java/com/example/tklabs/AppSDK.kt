@@ -9,6 +9,7 @@ import java.io.IOException
 
 class AppSDK(activity: Activity) {
     var activity: Activity = activity
+    lateinit var jsonArrayUsers: JSONArray
 
     fun tryLogin(email: String, password: String): String {
         Log.d("hey", password)
@@ -18,11 +19,11 @@ class AppSDK(activity: Activity) {
         var validPassword: Boolean = false
 
         var jsonObject: JSONObject = JSONObject(loadJSONFromAsset())
-        var jsonArray: JSONArray = jsonObject.getJSONArray("users")
+        jsonArrayUsers = jsonObject.getJSONArray("users")
 
         var validationService: ValidationService = ValidationService()
 
-        validEmail = validationService.emailValidation( email,jsonArray)
+        validEmail = validationService.emailValidation( email,jsonArrayUsers)
 
         if (validEmail) {
             validPassword = validationService.passwordValidation(password)

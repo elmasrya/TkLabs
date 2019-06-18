@@ -2,6 +2,7 @@ package com.example.tklabs
 
 import android.app.Activity
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -33,13 +34,17 @@ class LoginActivity : AppCompatActivity() {
         checkLogin()
 
         bLogin.setOnClickListener{
-            var loginMessage = appSDK.tryLogin(etEmail.text.toString(), etPassword.text.toString())
+            AsyncTask.execute {
+                var loginMessage = appSDK.tryLogin(etEmail.text.toString(), etPassword.text.toString())
 
-            if (loginMessage.equals("Login Successful")) {
+                if (loginMessage.equals("Login Successful")) {
+                    //TODO: Webservice call
 
-            } else {
-                Toast.makeText(activity, loginMessage, Toast
-                    .LENGTH_LONG).show()
+                } else {
+                    activity.runOnUiThread{
+                        Toast.makeText(activity, loginMessage, Toast.LENGTH_LONG).show()
+                    }
+                }
             }
         }
     }
