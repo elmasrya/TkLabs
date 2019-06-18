@@ -11,8 +11,4 @@ class MyApplication : Application() {
         prefs = Prefs(applicationContext)
         super.onCreate()
     }
-
-    fun tryLogin() {
-
-    }
 }

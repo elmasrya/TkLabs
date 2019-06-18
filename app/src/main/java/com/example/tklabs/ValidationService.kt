@@ -6,7 +6,8 @@ import org.json.JSONObject
 class ValidationService {
     lateinit var jsonArray : JSONArray
 
-    fun emailValidation(email: String, incomingjsonArray: JSONArray): Boolean {
+    fun userValidation(email: String, password: String,incomingjsonArray: JSONArray): String {
+        var validUser: String = ""
         jsonArray = incomingjsonArray
 
         for (i in 0..(jsonArray.length() - 1)) {
@@ -14,21 +15,20 @@ class ValidationService {
 
             var checkEmail = item.getString("email")
 
-            if (checkEmail.equals(email)) return true
+            if (checkEmail.equals(email)) {
+                var checkPassword = item.getString("password")
+
+                if (checkPassword.equals(password) && checkPassword.length >= 8) {
+                    validUser = item.toString()
+                    break
+                } else {
+                    validUser = "wrong passoword or minimum is not met"
+                }
+            } else {
+                validUser = "Invalid Login "
+            }
         }
 
-        return false
-    }
-
-    fun passwordValidation(password: String): Boolean {
-        for (i in 0..(jsonArray.length() - 1)) {
-            val item = jsonArray.getJSONObject(i)
-
-            var checkPassword = item.getString("password")
-
-            if (checkPassword.equals(password) && password.length >= 8) return true
-        }
-
-        return false
+        return validUser
     }
 }
